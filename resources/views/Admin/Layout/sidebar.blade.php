@@ -22,8 +22,8 @@
                 <span class="text">User</span>
             </a>
         </li>
-        <li>
-            <a href="">
+        <li class="{{ request()->routeIs('categories.*') ? 'active' : '' }}">
+            <a href="{{ route('categories.index') }}">
                 <i class='bx bxs-doughnut-chart' ></i>
                 <span class="text">Categories</span>
             </a>
