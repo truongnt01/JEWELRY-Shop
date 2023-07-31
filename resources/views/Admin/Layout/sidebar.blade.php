@@ -10,16 +10,16 @@
                 <span class="text">Dashboard</span>
             </a>
         </li>
-        <li  class="{{ request()->routeIs('roles.*') ? 'active' : '' }}">
+        <li class="{{ request()->routeIs('roles.*') ? 'active' : '' }}">
             <a href="{{ route('roles.index') }}">
                 <i class='bx bxs-message-dots' ></i>
                 <span class="text">Role</span>
             </a>
         </li>
-        <li>
-            <a href="">
+        <li class="{{ request()->routeIs('users.*') ? 'active' : '' }}"> 
+            <a href="{{ route('users.index') }}">
                 <i class='bx bxs-shopping-bag-alt' ></i>
-                <span class="text">Products</span>
+                <span class="text">User</span>
             </a>
         </li>
         <li>

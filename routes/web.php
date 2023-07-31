@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 //  
@@ -27,6 +28,7 @@ Route::get('/home', function () {
 });
 
 Route::resource('roles', RoleController::class);
+Route::resource('users', UserController::class);
 Auth::routes();
 
 
