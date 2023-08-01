@@ -1,5 +1,6 @@
 <?php
 
+use App\Providers\ComposerServiceProvider;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 
@@ -170,6 +171,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        ComposerServiceProvider::class,
     ])->toArray(),
 
     /*

@@ -4,7 +4,10 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Client\HomeController;
+use App\Http\Controllers\Client\ProductController as ClientProductController;
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 //  
@@ -19,16 +22,14 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index']);
+Route::get('product/{category_id}', [ClientProductController::class, 'index'])->name('client.products.index');
+
 Route::get('/dashboard', function () {
     return view('Admin.dashboard.index');
 })->name('dashboard');
 
-Route::get('/home', function () {
-    return view('Client.dashboard.index');
-});
+
 
 Route::resource('roles', RoleController::class);
 Route::resource('users', UserController::class);
