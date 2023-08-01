@@ -28,10 +28,10 @@
                 <span class="text">Categories</span>
             </a>
         </li>
-        <li>
-            <a href="">
+        <li class="{{ request()->routeIs('products.*') ? 'active' : '' }}">
+            <a href="{{ route('products.index') }}">
                 <i class='bx bxs-message-dots' ></i>
-                <span class="text">Attributes</span>
+                <span class="text">Products</span>
             </a>
         </li>
         

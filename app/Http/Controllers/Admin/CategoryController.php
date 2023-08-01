@@ -29,7 +29,7 @@ class CategoryController extends Controller
     public function create()
     {
         $parentCategories = $this->category->getParents();
-       
+    
         return view('Admin.categories.create', ['data' => $parentCategories]);
     }
 

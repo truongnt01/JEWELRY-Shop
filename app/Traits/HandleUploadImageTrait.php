@@ -8,7 +8,7 @@ use Intervention\Image\Facades\Image;
 
 trait HandleUploadImageTrait
 {
-    protected $path = 'upload/users/';
+    protected $path = 'upload/';
 
     public function veryfy($request)
     {
