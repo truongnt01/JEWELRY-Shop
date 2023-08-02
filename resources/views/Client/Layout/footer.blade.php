@@ -10,13 +10,13 @@
                                 <div class="block-content">
                                     <ul>
                                         <li>
-                                            <span>Head Office:</span> 26 Wyle Cop, Shrewsbury, Shropshire, SY1 1XD
+                                            <span>Head Office:</span> Tram Troi, Hoai Duc, Ha Noi, Vietnam
                                         </li>
                                         <li>
-                                            <span>Tel:</span> 01743 234500
+                                            <span>Tel:</span> 0983 487 496
                                         </li>
                                         <li>
-                                            <span>Email:</span> <a href="mailto:support@mojuri.com">support@mojuri.com</a>
+                                            <span>Email:</span> <a href="mailto:truongzeeeeee@gmail.com">truongzeeeeee@gmail.com</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -24,10 +24,9 @@
 
                             <div class="block block-social">
                                 <ul class="social-link">
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                    <li><a href="https://twitter.com/NguyenT64314556"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="https://www.facebook.com/truongzeeeeee/"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="https://github.com/truongnt01"><i class="fa fa-github"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -42,18 +41,7 @@
                                         <li>
                                             <a href="shop-grid-left.html">Track Your Order</a>
                                         </li>
-                                        <li>
-                                            <a href="shop-grid-left.html">Product Care & Repair</a>
-                                        </li>
-                                        <li>
-                                            <a href="shop-grid-left.html">Book an Appointment</a>
-                                        </li>
-                                        <li>
-                                            <a href="shop-grid-left.html">Frequently Asked Questions</a>
-                                        </li>
-                                        <li>
-                                            <a href="shop-grid-left.html">Shipping & Returns</a>
-                                        </li>
+                                        
                                     </ul>
                                 </div>
                             </div>
@@ -63,24 +51,11 @@
                                 <h2 class="block-title">About Us</h2>
                                 <div class="block-content">
                                     <ul>
-                                        <li>
-                                            <a href="#">About Us</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">FAQ</a>
-                                        </li>
+                                        
                                         <li>
                                             <a href="#">Our Producers</a>
                                         </li>
-                                        <li>
-                                            <a href="#">Sitemap</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Terms & Conditions</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Privacy Policy</a>
-                                        </li>
+                                        
                                     </ul>
                                 </div>
                             </div>
@@ -90,24 +65,7 @@
                                 <h2 class="block-title">Catalog</h2>
                                 <div class="block-content">
                                     <ul>
-                                        <li>
-                                            <a href="shop-grid-left.html">Earrings</a>
-                                        </li>
-                                        <li>
-                                            <a href="shop-grid-left.html">Necklaces</a>
-                                        </li>
-                                        <li>
-                                            <a href="shop-grid-left.html">Bracelets</a>
-                                        </li>
-                                        <li>
-                                            <a href="shop-grid-left.html">Rings</a>
-                                        </li>
-                                        <li>
-                                            <a href="shop-grid-left.html">Jewelry Box</a>
-                                        </li>
-                                        <li>
-                                            <a href="shop-grid-left.html">Studs</a>
-                                        </li>
+                                        
                                     </ul>
                                 </div>
                             </div>
@@ -124,7 +82,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="footer-left">
-                                <p class="copyright">Copyright © 2023. All Right Reserved</p>
+                                <p class="copyright">VietNam @2023. By Luxury</p>
                             </div>
                         </div>
                         <div class="col-md-6">

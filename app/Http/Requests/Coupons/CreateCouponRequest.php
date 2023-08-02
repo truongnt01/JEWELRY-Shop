@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Requests\Category;
+namespace App\Http\Requests\Coupons;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateCategoryRequest extends FormRequest
+class CreateCouponRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,8 +22,10 @@ class UpdateCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|unique:categories,name'.$this->category,
-
+            'name' => 'required|unique:coupons,name',
+            'type' => 'required',
+            'value' => 'required|numeric',
+            'expery_data' => 'required|date',
         ];
     }
 }
