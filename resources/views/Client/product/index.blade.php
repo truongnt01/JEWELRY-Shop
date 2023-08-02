@@ -12,7 +12,7 @@
                         </h1>
                     </div>
                     <div class="breadcrumbs">
-                        <a href="index.html">Home</a><span class="delimiter"></span><a href="shop-grid-left.html">Shop</a><span class="delimiter"></span>Bracelets
+                        <a href="{{ route('client.home') }}">Home</a><span class="delimiter"></span><a href="shop-grid-left.html">Shop</a><span class="delimiter"></span>Bracelets
                     </div>
                 </div>
             </div>
@@ -581,13 +581,13 @@
                                                                         </a>
                                                                     </div>
                                                                     <span class="product-quickview" data-title="Quick View">
-                                                                        <a href="#" class="quickview quickview-button">Quick View <i class="icon-search"></i></a>
+                                                                        <a href="{{ route('client.products.show' , $item->id) }}" class="quickview quickview-button">Quick View <i class="icon-search"></i></a>
                                                                     </span>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-8">
                                                                 <div class="products-content">
-                                                                    <h3 class="product-title"><a href="shop-details.html">{{ $item->name }}</a></h3>
+                                                                    <h3 class="product-title"><a href="{{ route('client.products.show', $item->id) }}">{{ $item->name }}</a></h3>
                                                                     <span class="price">${{ $item->price }}</span>
                                                                     <div class="rating">
                                                                         <div class="star star-5"></div>

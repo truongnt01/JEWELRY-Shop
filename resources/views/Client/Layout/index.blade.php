@@ -149,33 +149,7 @@
 											<nav id="main-navigation">
 												<ul id="menu-main-menu" class="menu">
 													<li class="level-0 menu-item menu-item-has-children current-menu-item">
-														<a href="index.html"><span class="menu-item-text">Home</span></a>
-														<ul class="sub-menu">
-															<li>
-																<a href="index.html"><span class="menu-item-text">Home Clean</span></a>
-															</li>
-															<li>
-																<a href="index2.html"><span class="menu-item-text">Home Collection</span></a>
-															</li>
-															<li>
-																<a href="index3.html"><span class="menu-item-text">Home Minimal</span></a>
-															</li>
-															<li>
-																<a href="index4.html"><span class="menu-item-text">Home Modern</span></a>
-															</li>
-															<li>
-																<a href="index5.html"><span class="menu-item-text">Home Parallax</span></a>
-															</li>
-															<li>
-																<a href="index6.html"><span class="menu-item-text">Home Strong</span></a>
-															</li>
-															<li>
-																<a href="index7.html"><span class="menu-item-text">Home Style</span></a>
-															</li>
-															<li>
-																<a href="index8.html"><span class="menu-item-text">Home Unique</span></a>
-															</li>
-														</ul>
+														<a href="{{ route('client.home') }}">Home</a>
 													</li>
 													<li class="level-0 menu-item menu-item-has-children">
 														<a href="shop-grid-left.html"><span class="menu-item-text">Shop</span></a>

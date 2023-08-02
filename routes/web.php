@@ -22,8 +22,10 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('client.home');
+
 Route::get('product/{category_id}', [ClientProductController::class, 'index'])->name('client.products.index');
+Route::get('product-detail/{id}', [ClientProductController::class, 'show'])->name('client.products.show');
 
 Route::get('/dashboard', function () {
     return view('Admin.dashboard.index');

@@ -40,9 +40,11 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $product = $this->product->findOrFail($id);
+        $show = $this->product->all();
+        return view('Client.product.detail',['data' => $product, 'show' => $show]);
     }
 
     /**

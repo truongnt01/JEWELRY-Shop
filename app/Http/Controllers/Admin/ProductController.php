@@ -84,14 +84,15 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request,  $id)
     {
+        $product = $this->product->findOrFail($id);
         $dataUpdate = $request->all();
 
-        $product = $this->product->findOrFail($id);
         $currentImage = $product->images ? $product->images->first()->url : ''; 
         $dataUpdate['image'] = $this->product->updateImage($request, $currentImage);
         $product->update($dataUpdate);
        
-
+        $product->update($dataUpdate);
+        $product->images()->delete();
         $product->images()->create(['url' => $dataUpdate['image']]);
         $product->assignCategory($dataUpdate['category_ids']);
         

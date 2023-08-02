@@ -27,7 +27,7 @@
                         @enderror
                     </div>
                     <div class="col-5">
-                        <img src="{{ $product->image ? asset('upload/'.$product->images->first()->url) : 'upload/default.jpg' }}" id="show-image" alt="" style="width: 200px;">
+                        <img src="{{ $product->images ? asset('upload/'.$product->images->first()->url) : '' }}" id="show-image" alt="" style="width: 200px;">
                     </div>
                 </div>
                
