@@ -397,7 +397,7 @@
 												<div class="dropdown mini-cart top-cart">
 													<div class="remove-cart-shadow"></div>
 													<a class="dropdown-toggle cart-icon" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-														<div class="icons-cart"><i class="icon-large-paper-bag"></i><span class="cart-count">2</span></div>
+														<div class="icons-cart"><i class="icon-large-paper-bag"></i><span class="cart-count">{{ $countProductInCart }}</span></div>
 													</a>
 													<div class="dropdown-menu cart-popup">
 														<div class="cart-empty-wrap">
