@@ -225,7 +225,7 @@
                                                                 <div class="hot">Hot</div>
                                                             </div>
                                                             <div class="product-thumb-hover">
-                                                                <a href="shop-details.html">
+                                                                <a href="{{ route('client.products.show', $item->id) }}">
                                                                     <img width="600" height="600" src="{{ $item->images->count() > 0 ? asset('upload/'.$item->images->first()->url)  : 'upload/default.jpg' }}" class="post-image" alt="">
                                                                     <img width="600" height="600" src="{{ asset('client/media/product/1-2.jpg') }}" class="hover-image back" alt="">
                                                                 </a>

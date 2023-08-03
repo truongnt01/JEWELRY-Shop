@@ -16,7 +16,9 @@
                     </div>
                 </div>
             </div>
-
+            @if (session('message'))
+                <h2>{{ session('message') }}</h2>
+            @endif
             <div id="content" class="site-content" role="main">
                 <div class="shop-details zoom" data-product_layout_thumb="scroll" data-zoom_scroll="true" data-zoom_contain_lens="true" data-zoomtype="inner" data-lenssize="200" data-lensshape="square" data-lensborder="" data-bordersize="2" data-bordercolour="#f9b61e" data-popup="false">	
                     <div class="product-top-info">
@@ -62,7 +64,10 @@
                                         </div>
                                     </div>
 
-                                    <div class="product-info col-lg-5 col-md-12 col-12 ">
+                                    {{-- Product Detail --}}
+                                    <form action="{{ route('client.carts.add') }}" method="POST" class="product-info col-lg-5 col-md-12 col-12 " enctype="multipart/form-data">
+                                        @csrf
+                                        <input type="hidden" name="product_id" value="{{ $data->id }}">
                                         <h1 class="title">{{ $data->name }}</h1>
                                         <span class="price">
                                             {{-- <del aria-hidden="true"><span>{{ $data->price }}</span></del>  --}}
@@ -111,11 +116,12 @@
                                                     <button type="button" class="minus">-</button>	
                                                 </div>
                                                 <div class="btn-add-to-cart">
-                                                    <a href="#" tabindex="0">Add to cart</a>
+                                                    
+                                                    <a type="submit" tabindex="0">have a great Day</a>
                                                 </div>
                                             </div>
                                             <div class="btn-quick-buy" data-title="Wishlist">
-                                                <button class="product-btn">Buy It Now</button>
+                                                <button type="submit" class="product-btn">Add To Cart</button>
                                             </div>
                                             <div class="btn-wishlist" data-title="Wishlist">
                                                 <button class="product-btn">Add to wishlist</button>
@@ -134,7 +140,8 @@
                                             <a href="#" title="Twitter" class="share-twitter"><i class="fa fa-twitter"></i>Twitter</a>
                                             <a href="#" title="Pinterest" class="share-pinterest"><i class="fa fa-pinterest"></i>Pinterest</a>
                                         </div>					
-                                    </div>
+                                    </form>
+                                    {{-- End Product Detail --}}
                                 </div>
                             </div>
                         </div>

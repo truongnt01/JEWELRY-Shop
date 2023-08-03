@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Client\CartController;
 use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Client\ProductController as ClientProductController;
 use Illuminate\Support\Facades\Route;
@@ -25,6 +26,9 @@ Route::get('/', [HomeController::class, 'index'])->name('client.home');
 
 Route::get('product/{category_id}', [ClientProductController::class, 'index'])->name('client.products.index');
 Route::get('product-detail/{id}', [ClientProductController::class, 'show'])->name('client.products.show');
+Route::middleware('auth')->group(function(){
+    Route::post('add-to-cart', [CartController::class, 'store'])->name('client.carts.add');
+});
 
 Auth::routes();
 
