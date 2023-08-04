@@ -17,6 +17,7 @@ class ProductController extends Controller
     public function index(Request $request, $category_id)
     {
         $product = $this->product->getBy($request->all(), $category_id);
+        
 
         return view("Client.product.index", ['data' => $product]);
     }

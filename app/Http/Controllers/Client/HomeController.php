@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Client;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -17,7 +18,7 @@ class HomeController extends Controller
     public function index()
     {
         $product = $this->product->latest('id')->paginate(10);
-
+      
         return view('Client.dashboard.index', ['data' => $product]);
     }
 }

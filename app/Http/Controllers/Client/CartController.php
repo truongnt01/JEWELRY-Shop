@@ -3,12 +3,16 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Cart\CartResource;
 use App\Models\Cart;
 use App\Models\CartProduct;
 use App\Models\Coupon;
 use App\Models\Order;
 use App\Models\Product;
+use Illuminate\Http\Response;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+
 
 class CartController extends Controller
 {
@@ -29,7 +33,9 @@ class CartController extends Controller
 
     public function index()
     {
-        //
+        $cart = $this->cart->fisrtOrCreateBy(auth()->user()->id, $this->cart)->load('products');
+
+        return view('Client.product.cart', ['data' => $cart]);
     }
 
     /**
@@ -46,7 +52,7 @@ class CartController extends Controller
     public function store(Request $request)
     {
         $product = $this->product->findOrFail($request->product_id);
-        
+
         $cart = $this->cart->fisrtOrCreateBy(auth()->user()->id, $this->cart);
         $cartProduct = $this->cartProduct->getBy($cart->id, $product->id);
         if ($cartProduct) {
@@ -92,5 +98,59 @@ class CartController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function updateQuantityProduct(Request $request, $id)
+    {
+        $cartProduct =  $this->cartProduct->find($id);
+        $dataUpdate = $request->all();
+
+        $cartProduct->update($dataUpdate);
+        $cart =  $cartProduct->cart;
+
+        return response()->json([
+            'product_cart_id' => $id,
+            'cart' => new CartResource($cart),
+            'remove_product' => $dataUpdate['product_quantity'] < 1,
+            'cart_product_price' => $cartProduct->total_price
+        ], Response::HTTP_OK);
+    }
+
+
+    public function removeProductInCart($id)
+    {
+        $cartProduct = $this->cartProduct->find($id);
+        $cartProduct->delete();
+        $cart = $cartProduct->cart;
+        return response()->json([
+            'product_cart_id' => $id,
+            'cart' => new CartResource($cart),
+        ], Response::HTTP_OK);
+    }
+
+    public function applyCoupon(Request $request)
+    {
+        $name = $request->input('coupon_code');
+
+        $coupon = $this->coupon->firstWithExperyDate($name, auth()->user()->id);
+
+        if ($coupon) {
+            $message = 'Successfully applied coupon code';
+            Session::put('coupon_id', $coupon->id);
+            Session::put('discount_amount_price', $coupon->value);
+            Session::put('coupon_code', $coupon->name);
+        } else {
+            Session::forget(['coupon_id', 'discount_amount_price', 'coupon_code']);
+            $message = 'Coupon code does not exist or has expired';
+        }
+
+        return redirect()->route('client.carts.index')->with(['message' => $message]);
+    }
+
+    public function checkOut()
+    {
+        $cart = $this->cart->fisrtOrCreateBy(auth()->user()->id, $this->cart)->load('products');
+
+        return view('Client.product.checkout', ['data' => $cart]);
     }
 }

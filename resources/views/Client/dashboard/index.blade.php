@@ -63,7 +63,7 @@
                                             <div class="bg-banner">
                                                 <div class="banner-wrapper banners">
                                                     <div class="banner-image">
-                                                        <a href="shop-grid-left.html">
+                                                        <a href="">
                                                             <img width="630" height="457" src="{{ asset('client/media/banner/banner-1-1.jpg') }}" alt="Banner Image">
                                                         </a>
                                                     </div>
@@ -217,7 +217,7 @@
                                         <div class="slick-sliders products-list grid" data-slidestoscroll="true" data-dots="false" data-nav="1" data-columns4="1" data-columns3="2" data-columns2="2" data-columns1="3" data-columns1440="4" data-columns="4">
                                         @foreach ($data as $item)
                                              {{-- Trending Product --}}
-                                             <div class="item-product slick-slide">
+                                             
                                                 <div class="items">
                                                     <div class="products-entry clearfix product-wapper">
                                                         <div class="products-thumb">
@@ -255,7 +255,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                
                                             </div>
                                         {{-- End Trending Product --}}          
                                         @endforeach            

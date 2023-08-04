@@ -7,6 +7,7 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="csrf-token" content="{{ csrf_token() }}">
 		<title>@yield('title','Shop')</title>
 		
 		<!-- Favicon -->
@@ -47,7 +48,7 @@
 								</div>
 								<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6 header-center">
 									<div class="site-logo">
-										<a href="index.html">
+										<a href="">
 											<img width="400" height="79" src="{{ asset('client/media/logo-white.png') }}" alt="Mojuri – Jewelry Store HTML Template" />
 										</a>
 									</div>
@@ -138,7 +139,7 @@
 								<div class="row">
 									<div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 header-left">
 										<div class="site-logo">
-											<a href="index.html">
+											<a href="{{ route('client.home') }}">
 												<img width="400" height="140" src="{{ asset('client/media/logo.png') }}" alt="Mojuri – Jewelry Store HTML Template" />
 											</a>
 										</div>
@@ -388,67 +389,20 @@
 
 											<!-- Wishlist -->
 											<div class="wishlist-box">
-												<a href="shop-wishlist.html"><i class="icon-heart"></i></a>
-												<span class="count-wishlist">1</span>
+												<a href="{{ route('client.carts.index') }}"><i class="icon-large-paper-bag"><span class="count-wishlist" id="productCountCart">{{ $countProductInCart }}</span></i></a>
+												
 											</div>
 											
 											<!-- Cart -->
-											<div class="mojuri-topcart dropdown light">
-												<div class="dropdown mini-cart top-cart">
-													<div class="remove-cart-shadow"></div>
-													<a class="dropdown-toggle cart-icon" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-														<div class="icons-cart"><i class="icon-large-paper-bag"></i><span class="cart-count">{{ $countProductInCart }}</span></div>
-													</a>
-													<div class="dropdown-menu cart-popup">
-														<div class="cart-empty-wrap">
-															<ul class="cart-list">
-																<li class="empty">
-																	<span>No products in the cart.</span>
-																	<a class="go-shop" href="shop-grid-left.html">GO TO SHOP<i aria-hidden="true" class="arrow_right"></i></a>
-																</li>
-															</ul>
-														</div>
-														<div class="cart-list-wrap">
-															<ul class="cart-list ">
-																<li class="mini-cart-item">
-																	<a href="#" class="remove" title="Remove this item"><i class="icon_close"></i></a>
-																	<a href="shop-details.html" class="product-image"><img width="600" height="600" src="{{ asset('client/media/product/3.jpg') }}" alt=""></a>
-																	<a href="shop-details.html" class="product-name">Twin Hoops</a>		
-																	<div class="quantity">Qty: 1</div>
-																	<div class="price">$150.00</div>
-																</li>
-																<li class="mini-cart-item">
-																	<a href="#" class="remove" title="Remove this item"><i class="icon_close"></i></a>													
-																	<a href="shop-details.html" class="product-image"><img width="600" height="600" src="{{ asset('client/media/product/1.jpg') }}" alt=""></a>
-																	<a href="shop-details.html" class="product-name">Medium Flat Hoops</a>
-																	<div class="quantity">Qty: 1</div>
-																	<div class="price">$100.00</div>						
-																</li>
-															</ul>
-															<div class="total-cart">
-																<div class="title-total">Total: </div>
-																<div class="total-price"><span>$250.00</span></div>
-															</div>
-															<div class="free-ship">
-																<div class="title-ship">Buy <strong>$400</strong> more to enjoy <strong>FREE Shipping</strong></div>
-																<div class="total-percent"><div class="percent" style="width:20%"></div></div>
-															</div>
-															<div class="buttons">
-																<a href="shop-cart.html" class="button btn view-cart btn-primary">View cart</a>
-																<a href="shop-checkout.html" class="button btn checkout btn-default">Check out</a>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
+											
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</header>
+				</header>
+			
 
 			<div id="site-main" class="site-main">
                 @yield('content')
@@ -467,18 +421,7 @@
 	    </div>
 
 		<!-- Dependency Scripts -->
-		<script src="{{ asset('client/libs/popper/js/popper.min.js') }} "></script>
-		<script src="{{ asset('client/libs/jquery/js/jquery.min.js') }}"></script>
-		<script src="{{ asset('client/libs/bootstrap/js/bootstrap.min.js') }}"></script>
-		<script src="{{ asset('client/libs/slick/js/slick.min.js') }}"></script>
-		<script src="{{ asset('client/libs/mmenu/js/jquery.mmenu.all.min.js') }}"></script>
-		<script src="{{ asset('client/libs/slider/js/tmpl.js') }}"></script>
-		<script src="{{ asset('client/libs/slider/js/jquery.dependClass-0.1.js') }}"></script>
-		<script src="{{ asset('client/libs/slider/js/draggable-0.1.js') }}"></script>
-		<script src="{{ asset('client/libs/slider/js/jquery.slider.js') }}"></script>
-		
-		<!-- Site Scripts -->
-		<script src="{{ asset('client/assets/js/app.js') }}"></script>
+		@include('Client.Layout.javascript')
 	</body>
 
 <!-- Mirrored from caketheme.com/html/mojuri/shop-grid-left.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 28 Jul 2023 08:44:00 GMT -->
