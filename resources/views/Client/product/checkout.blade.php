@@ -2,8 +2,8 @@
 @section('title','CheckOut')
 @section('content')
 <div id="site-main" class="site-main">
-    <form action="" method="post">
-        @csrf
+    
+      
           <div id="main-content" class="main-content">
         <div id="primary" class="content-area">
             <div id="title" class="page-title">
@@ -23,7 +23,8 @@
                 <div class="section-padding">
                     <div class="section-container p-l-r">
                         <div class="shop-checkout">
-                            <form name="checkout" method="post" class="checkout" action="#" autocomplete="off">
+                            <form name="checkout" method="post" class="checkout" action="{{ route('client.checkout.process') }}" autocomplete="off">
+                                @csrf
                                 <div class="row">
                                     <div class="col-xl-8 col-lg-7 col-md-12 col-12">
                                         <div class="customer-details">
@@ -90,17 +91,21 @@
                                                         
                                                     
                                                 </div>
-                                                <div class="cart-subtotal">
+                                                {{-- <div class="cart-subtotal">
                                                     <h2>Subtotal</h2>
                                                     <div class="subtotal-price">
                                                         <span class="total-price" data-price="{{ $data->total_price }}">${{ $data->total_price }}</span>
                                                     </div>
-                                                </div>
+                                                </div> --}}
                                                 <div class="shipping-totals shipping">
                                                     <h2>Shipping</h2>
                                                     <div data-title="Shipping">
-                                                        <span class="shipping" data-price="20">$20</span>
-                                                        <input type="hidden" value="20" name="ship">
+                                                        <ul class="shipping-methods custom-radio">
+                                                            <li>
+                                                                <input type="radio" name="shipping_method" data-index="0" value="free_shipping" class="shipping_method" checked="checked"><label>Free shipping</label>
+                                                            </li>
+                                                           
+                                                        </ul>
                                                     </div>
                                                 </div>
                                                 @if (session('discount_amount_price'))
@@ -117,8 +122,8 @@
                                                     <h2>Total</h2>
                                                     <div >
                                                         <strong>
-                                                            <span class="total-price-all"></span>
-                                                            <input type="hidden" id="total" value="" name="total">
+                                                            <span class="total-price"  data-price="{{ $data->total_price }}">${{ $data->total_price }}</span>
+                                                            <input type="hidden" value="{{ $data->total_price }}" name="total">
                                                         </strong> 
                                                     </div>
                                                 </div>
@@ -128,7 +133,7 @@
                                                     
                                                     
                                                     <li class="payment-method">
-                                                        <input type="radio" class="input-radio" name="payment_method" value="cod">
+                                                        <input type="radio" class="input-radio" name="payment" value="monney" value="cod">
                                                         <label>Cash on delivery</label>
                                                         <div class="payment-box">
                                                             <p>Pay with cash upon delivery.</p>
@@ -140,7 +145,7 @@
                                                     <div class="terms-and-conditions-wrapper">
                                                         <div class="privacy-policy-text"></div>
                                                     </div>
-                                                    <button type="submit" class="button alt" name="checkout_place_order" value="Place order">Place order</button>
+                                                    <button class="button alt" name="checkout_place_order" value="Place order">Place order</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -153,7 +158,7 @@
             </div><!-- #content -->
         </div><!-- #primary -->
     </div><!-- #main-content -->
-    </form>
+    
   
 </div>
 @endsection

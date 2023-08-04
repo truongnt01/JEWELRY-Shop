@@ -5,8 +5,10 @@ use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\Client\CartController;
 use App\Http\Controllers\Client\HomeController;
+use App\Http\Controllers\Client\OrderController;
 use App\Http\Controllers\Client\ProductController as ClientProductController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -35,9 +37,12 @@ Route::middleware('auth')->group(function(){
     Route::post('apply-coupon', [CartController::class, 'applyCoupon']
     )->name('client.carts.apply_coupon');
 
-    Route::post('abc', [CartController::class, 'abc'])->name('abc');
+    Route::get('checkout', [CartController::class, 'checkout'])->name('client.checkout.index')->middleware('user_check_cart');
 
-    Route::get('checkout', [CartController::class, 'checkout'])->name('client.checkout.index');
+    Route::post('process-checkout', [CartController::class, 'processCheckout']
+    )->name('client.checkout.process')->middleware('user_check_cart');
+    Route::get('list-orders', [OrderController::class, 'index'])->name('client.orders.index');
+    Route::post('orders/cancel/{id}', [OrderController::class, 'cancel'])->name('client.orders.cancel');
 });
 
 Auth::routes();
@@ -53,6 +58,9 @@ Route::middleware('auth')->group(function(){
         Route::resource('products', ProductController::class);
         Route::resource('categories', CategoryController::class);
         Route::resource('coupons', CouponController::class);
+
+        Route::get('orders', [AdminOrderController::class, 'index'])->name('admin.orders.index');
+        Route::post('update-status/{id}',[AdminOrderController::class, 'updateStatus'])->name('admin.orders.update_status');
 });
 
 

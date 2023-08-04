@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Orders\CreateOrderRequest;
 use App\Http\Resources\Cart\CartResource;
 use App\Models\Cart;
 use App\Models\CartProduct;
@@ -152,5 +153,25 @@ class CartController extends Controller
         $cart = $this->cart->fisrtOrCreateBy(auth()->user()->id, $this->cart)->load('products');
 
         return view('Client.product.checkout', ['data' => $cart]);
+    }
+
+    public function processCheckout(CreateOrderRequest $request){
+        $dataCreate = $request->all();
+        $dataCreate['user_id'] = auth()->user()->id;
+        $dataCreate['status'] = 'pending';
+        $dataCreate['total'] = 10000;
+        $dataCreate['ship'] = 1;
+        $this->order->create($dataCreate);
+        $couponID = Session::get('coupon_id');
+        if($couponID){
+            $coupon = $this->coupon->find(Session::get('coupon_id'));
+            if($coupon){
+                $coupon->users()->attach(auth()->user()->id,['value' => $coupon->value]);
+            }
+        }
+        $cart = $this->cart->fisrtOrCreateBy(auth()->user()->id,$this->cart);
+        $cart->products()->delete();
+       
+        Session::forget(['coupon_id','discount_amount_price','coupon_code']);
     }
 }

@@ -27,6 +27,6 @@ class Coupon extends Model
     }
 
     public function firstWithExperyDate($name, $userId){
-        return $this->whereName($name)->whereDoesntHave('users', fn($item) => $item->where('users.id', $userId))->whereDate('expery_data', '>=', Carbon::now()->first());
+        return $this->whereName($name)->whereDoesntHave('users', fn($item) => $item->where('users.id', $userId))->whereDate('expery_data', '>=', Carbon::now())->first();
     }
 }

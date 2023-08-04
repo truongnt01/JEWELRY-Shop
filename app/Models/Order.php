@@ -18,5 +18,11 @@ class Order extends Model
         'customer_email',
         'customer_address',
         'note',
+        'payment',
+        'user_id'
     ];
+
+    public function getWithPaginateBy($userId){
+        return $this->whereUserId($userId)->latest('id')->paginate(10);
+    }
 }

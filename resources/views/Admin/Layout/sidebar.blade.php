@@ -40,6 +40,12 @@
                 <span class="text">Coupons</span>
             </a>
         </li>
+        <li class="{{ request()->routeIs('admin.orders.*') ? 'active' : '' }}">
+            <a href="{{ route('admin.orders.index') }}">
+                <i class='bx bxs-message-dots' ></i>
+                <span class="text">Orders</span>
+            </a>
+        </li>
     </ul>
     <ul class="side-menu">
         

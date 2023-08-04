@@ -4,7 +4,7 @@ $(function () {
     function getTotalValue() {
         let total = $(".total-price").data("price");
         let couponPrice = $(".coupon-div")?.data("price") ?? 0;
-        $(".total-price-all").text(`$${total - couponPrice}`);
+        $(".total-price-all").text(`$${total / couponPrice}`);
     }
 
     $(document).on("click", ".btn-remove-product", function (e) {
